@@ -52,10 +52,10 @@ class Body {
   void getaccel() {
     ax =0;
     ay = 0;
-    for (int i=0; i<bodies.length; i++) {
-      if (bodies[i].lx-lx != 0 && bodies[i].ly-ly != 0) {
-        ax = ax + (bodies[i].lx-lx)*bodies[i].mass/(cube(sqrt(square(bodies[i].lx-lx)+square(bodies[i].ly-ly))));
-        ay = ay + (bodies[i].ly-ly)*bodies[i].mass/(cube(sqrt(square(bodies[i].lx-lx)+square(bodies[i].ly-ly))));
+    for (Body body : bodies) {
+      if (body.lx-lx != 0 && body.ly-ly != 0) {
+        ax = ax + (body.lx-lx)*body.mass/(cube(sqrt(square(body.lx-lx)+square(body.ly-ly))));
+        ay = ay + (body.ly-ly)*body.mass/(cube(sqrt(square(body.lx-lx)+square(body.ly-ly))));
       }
     }
   }
