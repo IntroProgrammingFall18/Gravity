@@ -3,8 +3,6 @@ int numBodies = 200;
 float vbound = 1.5;
 
 Body [] bodies = new Body[numBodies];
-//float [] accelx = new float[numBodies];
-//float [] accely = new float[numBodies];
 
 void setup(){
   size(1000,1000);
