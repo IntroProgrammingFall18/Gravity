@@ -24,7 +24,7 @@ void draw() {
   //remove defunct bodies
   for (int i = bodies.size() - 1; i >= 0; i--) {
     Body body = bodies.get(i);
-    if (!body.drawpath) {
+    if (body.remove) {
       bodies.remove(i);
     }
   }
@@ -34,7 +34,7 @@ void draw() {
     body.display();
     body.drawpath();
     for (Body otherbody : bodies) {
-      if (body != otherbody) {
+      if (body != otherbody && !body.remove && !otherbody.remove) {
         body.collide(otherbody);
       }
     }

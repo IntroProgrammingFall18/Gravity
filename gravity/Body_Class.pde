@@ -10,7 +10,7 @@ class Body {
   float[] pathx = {};
   float[] pathy = {};
   color bodyColor;
-  boolean drawpath = true;
+  boolean remove = false;
 
   Body(float tempmass) {
     mass = tempmass;
@@ -42,11 +42,11 @@ class Body {
 
   void drawpath() {
     stroke(bodyColor);
-    if (drawpath) {
+    //if (drawpath) {
       for (int j =0; j<pathx.length-1; j++) {
         line(pathx[j], pathy[j], pathx[j+1], pathy[j+1]);
       }
-    }
+    //}
   }
 
   void getaccel() {
@@ -77,7 +77,7 @@ class Body {
         other.ay =0;
         other.lx =0;
         other.ly =0;
-        other.drawpath =false;
+        other.remove =true;
         //other.pathx = {};
         //other.pathy = {};
       } else {
@@ -95,7 +95,7 @@ class Body {
         ay=0;
         lx=0;
         ly=0;
-        drawpath=false;
+        remove=true;
       }
     }
   }
