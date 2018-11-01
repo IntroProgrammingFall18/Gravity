@@ -28,6 +28,7 @@ void draw() {
       bodies.remove(i);
     }
   }
+  //updates and displays all bodies
   for (Body body : bodies) {
     body.getaccel();
     body.update();
