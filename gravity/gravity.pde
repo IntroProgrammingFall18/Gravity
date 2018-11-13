@@ -2,6 +2,8 @@ float k = 10000;
 int numBodies = 200;
 float vbound = 1.5;
 float zoomFactor = 1.0;
+float xDrag =0;
+float yDrag =0;
 
 //Body [] bodies = new Body[numBodies];
 
@@ -20,7 +22,7 @@ void setup() {
 }
 
 void draw() {
-  translate(width/2, height/2);
+  translate(width/2+xDrag, height/2+ yDrag);
   scale(zoomFactor);
   background(255);
   //remove defunct bodies
@@ -45,9 +47,13 @@ void draw() {
 }
 
 void mouseWheel(MouseEvent event) {
-  float e = event.getCount();
-  zoomFactor *= pow(.5,e); 
-  println(e);
+  zoomFactor *= pow(.5,event.getCount()); 
+}
+
+void mouseDragged() 
+{
+  xDrag += mouseX-pmouseX;
+  yDrag += mouseY-pmouseY;
 }
 
 float square(float f) {
