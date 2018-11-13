@@ -1,6 +1,7 @@
 float k = 10000;
 int numBodies = 200;
 float vbound = 1.5;
+float zoomFactor = 1.0;
 
 //Body [] bodies = new Body[numBodies];
 
@@ -20,6 +21,7 @@ void setup() {
 
 void draw() {
   translate(width/2, height/2);
+  scale(zoomFactor);
   background(255);
   //remove defunct bodies
   for (int i = bodies.size() - 1; i >= 0; i--) {
@@ -40,6 +42,12 @@ void draw() {
       }
     }
   }
+}
+
+void mouseWheel(MouseEvent event) {
+  float e = event.getCount();
+  zoomFactor *= pow(.5,e); 
+  println(e);
 }
 
 float square(float f) {
