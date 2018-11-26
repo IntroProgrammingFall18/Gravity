@@ -35,6 +35,8 @@ void draw() {
   //updates and displays all bodies
   for (Body body : bodies) {
     body.getaccel();
+  }
+  for (Body body : bodies) {
     body.update();
     body.display();
     body.drawpath();
