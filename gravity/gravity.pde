@@ -22,7 +22,8 @@ void setup() {
 }
 
 void draw() {
-  translate(width/2+xDrag, height/2+ yDrag);
+  translate(width/2+xDrag*zoomFactor, height/2+ yDrag*zoomFactor);
+  //translate(width/2+(mouseX-width/2)*zoomFactor, height/2+ (mouseY-height/2)*zoomFactor);
   scale(zoomFactor);
   background(255);
   //remove defunct bodies
@@ -54,8 +55,8 @@ void mouseWheel(MouseEvent event) {
 
 void mouseDragged() 
 {
-  xDrag += mouseX-pmouseX;
-  yDrag += mouseY-pmouseY;
+  xDrag += (mouseX-pmouseX)/zoomFactor;
+  yDrag += (mouseY-pmouseY)/zoomFactor;
 }
 
 float square(float f) {
