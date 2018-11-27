@@ -24,6 +24,11 @@ class Body {
     vy = random(-vbound, vbound);
     pathx = append(pathx, lx);
     pathy = append(pathy, ly);
+    TableRow newRow = saveData.addRow();
+    newRow.setFloat("xLocation", lx);
+    newRow.setFloat("yLocation", ly);
+    newRow.setFloat("xVelocity", vx);
+    newRow.setFloat("yVelocity", vy);
   }
 
   void display() {

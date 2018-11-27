@@ -4,8 +4,7 @@ float vbound = 1.5;
 float zoomFactor = 1.0;
 float xDrag =0;
 float yDrag =0;
-
-//Body [] bodies = new Body[numBodies];
+Table saveData;
 
 // our intention to fill this ArrayList with Body objects
 ArrayList <Body> bodies = new ArrayList<Body>();
@@ -14,11 +13,15 @@ ArrayList <Body> bodies = new ArrayList<Body>();
 
 void setup() {
   size(1000, 1000);
+  initializeTable();
+  
   for (int i=0; i<numBodies; i++) {
     // Objects can be added to an ArrayList with add()
     bodies.add(new Body(cube(random(5))));
   }
   frameRate(60);
+
+  saveTable(saveData, "saveData.csv");
 }
 
 void draw() {
@@ -50,7 +53,7 @@ void draw() {
 }
 
 void mouseWheel(MouseEvent event) {
-  zoomFactor *= pow(.5,event.getCount()); 
+  zoomFactor *= pow(.5, event.getCount());
 }
 
 void mouseDragged() 
