@@ -1,5 +1,5 @@
 class Body {
-  float mass = 1;
+  float mass;
   float radius;
   float lx;
   float ly;

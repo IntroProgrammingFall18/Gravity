@@ -5,6 +5,7 @@ float zoomFactor = 1.0;
 float xDrag =0;
 float yDrag =0;
 Table saveData;
+Table loadData;
 
 // our intention to fill this ArrayList with Body objects
 ArrayList <Body> bodies = new ArrayList<Body>();
@@ -89,6 +90,9 @@ void keyPressed() {
     zoomFactor = 1;
     xDrag = 0.0;
     yDrag = 0.0;
+  }
+  if (key == ' '){
+    load();
   }
 }
 
